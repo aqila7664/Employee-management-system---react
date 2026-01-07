@@ -1,0 +1,66 @@
+{
+  "employees": [
+    {
+      "id": "EMP002",
+      "fullName": "Priya Nair",
+      "email": "priya.nair@company.com",
+      "phone": "+91 91234 56789",
+      "department": "Human Resources",
+      "designation": "HR Executive",
+      "employmentType": "Full Time",
+      "status": "Leave"
+    },
+    {
+      "id": "EMP003",
+      "fullName": "Rahul Verma",
+      "email": "rahul.verma@company.com",
+      "phone": "+91 99887 66554",
+      "department": "Finance",
+      "designation": "Accounts Manager",
+      "employmentType": "Contract",
+      "status": "Present"
+    },
+    {
+      "id": "EMP004878",
+      "fullName": "Sneha Iyer",
+      "email": "sneha.iyer@company.com",
+      "phone": "+91 90123 45678",
+      "department": "Marketing",
+      "designation": "Digital Marketing Specialist",
+      "employmentType": "Part Time",
+      "status": "Leave"
+    }
+  ],
+  "departments": [
+    {
+      "dept_id": "D001",
+      "dept_name": "Human Resources",
+      "dept_desc": "Handles recruitment, employee relations, and HR policies",
+      "dept_manager": "Anita Sharma"
+    },
+    {
+      "dept_id": "D002",
+      "dept_name": "Information Technology",
+      "dept_desc": "Manages infrastructure, applications, and security",
+      "dept_manager": "Rahul Verma"
+    },
+    {
+      "dept_id": "D003",
+      "dept_name": "Finance",
+      "dept_desc": "Responsible for accounting, budgeting, and payroll",
+      "dept_manager": "Suresh Iyer"
+    },
+    {
+      "dept_id": "D004",
+      "dept_name": "Operations",
+      "dept_desc": "Oversees daily business operations and logistics",
+      "dept_manager": "Neha Kapoor"
+    },
+    {
+      "dept_id": "D005",
+      "dept_name": "Sales & Marketing",
+      "dept_desc": "Drives revenue, branding, and customer acquisition",
+      "dept_manager": "Amit Malhotra"
+    }
+  ]
+}
