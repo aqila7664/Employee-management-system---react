@@ -20,6 +20,7 @@
 import { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
+import Loader from "../components/Loader";
 
 const EMPLOYEES_API = `${import.meta.env.VITE_API_BASE_URL}/employees`;
 const DEPARTMENTS_API = `${import.meta.env.VITE_API_BASE_URL}/departments`;
@@ -60,9 +61,9 @@ function Dashboard() {
     return (
       <div className="flex h-full">
         <Sidebar />
-        <div className="flex-1">
+        <div className="flex-1 ml-60">
           <Navbar />
-          <div className="p-8">Loading dashboard...</div>
+          <Loader />
         </div>
       </div>
     );

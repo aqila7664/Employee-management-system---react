@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Navbar from "../components/Navbar";
+import Loader from "../components/Loader";
 
 function Employees() {
   // const [formData, setFormData] = useState({
@@ -123,15 +124,23 @@ function Employees() {
   // true  → form visible
   const [showForm, setShowForm] = useState(false);
 
+  // -------------------------------
+  // STATE: Loading state
+  // -------------------------------
+  const [loading, setLoading] = useState(true);
+
   const API_URL = `${import.meta.env.VITE_API_BASE_URL}/employees`;
 
   const fetchEmployees = async () => {
     try {
+      setLoading(true);
       const res = await fetch(API_URL);
       const data = await res.json();
       setEmployees(data);
     } catch (error) {
       console.error("Error fetching employees:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -264,6 +273,18 @@ function Employees() {
       console.error("Delete failed", error);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex h-screen">
+        <Sidebar />
+        <div className="flex-1 ml-60">
+          <Navbar />
+          <Loader />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>

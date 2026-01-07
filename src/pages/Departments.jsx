@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
+import Loader from "../components/Loader";
 import { useState, useEffect, useCallback } from "react";
 
 function Departments() {
@@ -13,16 +14,20 @@ function Departments() {
   const [depts, setDepts] = useState([]);
   const [deptEditingId, setDeptEditingId] = useState(null);
   const [showDeptForm, setShowDeptForm] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const API_URL = `${import.meta.env.VITE_API_BASE_URL}/departments`;
 
   const fetchDepts = useCallback(async () => {
     try {
+      setLoading(true);
       const res = await fetch(API_URL);
       const data = await res.json();
       setDepts(data);
     } catch (error) {
       console.error("Error fetching departments:", error);
+    } finally {
+      setLoading(false);
     }
   }, [API_URL]);
 
@@ -103,6 +108,18 @@ function Departments() {
       console.error("Error deleting department:", error);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="flex h-full">
+        <Sidebar />
+        <div className="flex-1 ml-60">
+          <Navbar />
+          <Loader />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
